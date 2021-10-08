@@ -169,7 +169,7 @@ int main()
     }
     catch(const std::exception& x)
     {
-        std::cerr << x.what() << " win " << attempts << " attempts" << std::endl;
+        std::cerr << x.what() << " with " << attempts << " attempts" << std::endl;
     }
 
     return 0;
