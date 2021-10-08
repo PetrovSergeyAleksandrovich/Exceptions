@@ -4,5 +4,6 @@ project(exceptions)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(task_1 task_1.cpp)
+add_executable(task_2 task_2.cpp)
 
 add_executable(main main.cpp)

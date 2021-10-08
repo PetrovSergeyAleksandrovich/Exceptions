@@ -1,12 +1,16 @@
 #include <iostream>
 #include <map>
+#include <ctime>
+#include <windows.h>
 
 int main() {
-
-    std::map<int, int> list_a;
-    std::map<int, std::map<int, int>> list_b;
-
-    list_b.insert(std::pair<int, std::pair<int, int>>(1, (2, 3)));
-
+    int x;
+    while(true)
+    {
+        srand(time(nullptr));
+        x = rand() % 8;
+        std::cout << x;
+        Sleep(1000);
+    }
     return 0;
 }
