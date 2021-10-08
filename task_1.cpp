@@ -84,7 +84,7 @@ void checkShop(std::string& clothes_type, int& quantity, std::map<std::string, i
 {
     bool accepted_clothes = false;
     bool accepted_quantity = false;
-    
+
     for(auto ITR = shop.begin(); ITR != shop.end(); ++ITR)
     {
         if(ITR->first == clothes_type)
