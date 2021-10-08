@@ -3,6 +3,22 @@
 #include <ctime>
 #include <windows.h>
 
+class WinException : public std::exception
+{
+    const char* what() const noexcept override
+    {
+        return "You WIN";
+    }
+};
+
+class LostException : public std::exception
+{
+    const char* what() const noexcept override
+    {
+        return "You LOST";
+    }
+};
+
 enum Type
 {
     NOTHING,
@@ -107,13 +123,12 @@ void checkInput(int& x, int& y)
 
 void checkEndGame(bool& status, int& attempts)
 {
-    if(!status) throw std::exception();
-    if(status) std::cout << "You WIN with " << attempts << " attempts" << std::endl;
+    if(!status) throw LostException();
+    if(status) throw WinException();
 }
 
 int main()
 {
-
     GameField gamefield;
     bool isGaming = true;
     bool isWin = false;
@@ -152,9 +167,9 @@ int main()
     try {
         checkEndGame(isWin, attempts);
     }
-    catch(...)
+    catch(const std::exception& x)
     {
-        std::cerr << "You LOST with " << attempts << " attempts" << std::endl;
+        std::cerr << x.what() << " win " << attempts << " attempts" << std::endl;
     }
 
     return 0;
