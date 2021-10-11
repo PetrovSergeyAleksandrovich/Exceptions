@@ -19,15 +19,16 @@ public:
         T1 key_tmp;
         T2 value_tmp;
         std::cout << "KEY\n:";
+        std::cin >> key_tmp;
         try
         {
-            if(!(std::cin >> key_tmp)) throw std::invalid_argument("wrong key type");
             keys.push_back(key_tmp);
         }
-        catch(const std::exception& x)
+        catch(...)
         {
-          std::cerr  << x.what() << std::endl;
+            std::cerr << "wrong KEY type" << std::endl;
         }
+
 
 //        std::cout << "VALUE\n:";
 //        try
@@ -58,7 +59,9 @@ int main()
 
     while(flag)
     {
-        data.add();
+        std::cout << "command:";
+        std::cin >> command;
+        if(command == "add") data.add();
     }
 
     
