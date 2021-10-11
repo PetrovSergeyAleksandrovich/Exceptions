@@ -3,58 +3,63 @@
 #include <exception>
 
 template<typename T1, typename T2>
-class Data
+class Register
 {
 private:
     std::vector<T1> keys;
     std::vector<T2> values;
 public:
-    Data()
+    Register()
     {
         std::cout << "class generated" << std::endl;
     }
 
-    void add(T1 a, T2 b)
+    void add()
     {
-        keys.push_back(a);
-        values.push_back(b);
-    }
-
-    void remove(T1 a)
-    {
-        keys.push_back(a);
-        ///values.push_back(b);
-    }
-
-    void print(T1 a)
-    {
-        if(keys.size() == 0) throw std::invalid_argument("empty list");
-        for(int i = 0; i < keys.size(); ++i)
+        T1 key_tmp;
+        T2 value_tmp;
+        std::cout << "KEY\n:";
+        try
         {
-            std::cout << keys[i] << " : " << values[i] << std::endl;
+            if(!(std::cin >> key_tmp)) throw std::invalid_argument("wrong key type");
+            keys.push_back(key_tmp);
         }
-    }
-
-    void find(T1 a)
-    {
-        if(keys.size() == 0) throw std::invalid_argument("empty list");
-        for(int i = 0; i < keys.size(); ++i)
+        catch(const std::exception& x)
         {
-            std::cout << keys[i] << " : " << values[i] << std::endl;
+          std::cerr  << x.what() << std::endl;
         }
+
+//        std::cout << "VALUE\n:";
+//        try
+//        {
+//            if(!(std::cin >> value_tmp)) throw std::exception();
+//            values.push_back(value_tmp);
+//        }
+//        catch(...)
+//        {
+//            std::cerr << "wrong value type" << std::endl;
+//        }
+
     }
 
-    ~Data()
+    ~Register()
     {
         std::cout << "class destroyed" << std::endl;
     }
 };
 
+
 int main()
 {
-    Data<int, int> data1;
-    Data<int, float> data2;
-    Data<int, std::string> data3;
+    bool flag = true;
+    std::string command;
+
+    Register<int, int> data;
+
+    while(flag)
+    {
+        data.add();
+    }
 
     
 
