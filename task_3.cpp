@@ -40,7 +40,6 @@ public:
         std::cin >> key_tmp;
         for(int i = 0; i < pairs.size(); ++i)
         {
-            if(pairs.size() == 1) {pairs.clear(); break;}
             if(pairs[i].key == key_tmp) pairs.erase(pairs.begin()+i);
         }
     }
