@@ -47,6 +47,7 @@ public:
 
     void find()
     {
+        if(pairs.size() == 0) {std::cout << "Register Empty\n"; return;}
         std::cout << "Type KEY to find element: ";
         K key_tmp;
         std::cin >> key_tmp;
